@@ -250,22 +250,90 @@ public class Main {
 
         System.out.println("\n=== Enter New Information (press Enter to keep current) ===");
 
-        System.out.print("Enter new name: ");
+        System.out.print("Enter new name (or press Enter to keep current): ");
         String newName = scanner.nextLine();
         if (Utils.validateNotEmpty(newName)) {
             student.setName(newName);
         }
 
-        System.out.print("Enter new course: ");
-        String newCourse = scanner.nextLine();
-        if (Utils.validateNotEmpty(newCourse)) {
-            student.setCourse(newCourse);
+        // Course selection menu
+        System.out.println("\nUpdate course? (Y/N): ");
+        String updateCourse = scanner.nextLine();
+        if (updateCourse.equalsIgnoreCase("Y")) {
+            System.out.println("\nSelect new course:");
+            System.out.println("1. CSE (Computer Science and Engineering)");
+            System.out.println("2. Mech (Mechanical Engineering)");
+            System.out.println("3. ECE (Electronics and Communication Engineering)");
+            System.out.println("4. EEE (Electrical and Electronics Engineering)");
+            System.out.println("5. CSBS (Computer Science and Business Systems)");
+            System.out.println("6. CCE (Computer and Communication Engineering)");
+            System.out.print("Enter your choice (1-6): ");
+
+            String courseChoice = scanner.nextLine();
+            String newCourse = "";
+
+            switch (courseChoice) {
+                case "1":
+                    newCourse = "CSE";
+                    break;
+                case "2":
+                    newCourse = "Mech";
+                    break;
+                case "3":
+                    newCourse = "ECE";
+                    break;
+                case "4":
+                    newCourse = "EEE";
+                    break;
+                case "5":
+                    newCourse = "CSBS";
+                    break;
+                case "6":
+                    newCourse = "CCE";
+                    break;
+                default:
+                    System.out.println("[WARNING] Invalid course selection. Keeping current course.");
+            }
+
+            if (!newCourse.isEmpty()) {
+                student.setCourse(newCourse);
+            }
         }
 
-        System.out.print("Enter new year: ");
-        String newYear = scanner.nextLine();
-        if (Utils.validateNotEmpty(newYear)) {
-            student.setYear(newYear);
+        // Year selection menu
+        System.out.println("\nUpdate year? (Y/N): ");
+        String updateYear = scanner.nextLine();
+        if (updateYear.equalsIgnoreCase("Y")) {
+            System.out.println("\nSelect new year:");
+            System.out.println("1. 1st Year");
+            System.out.println("2. 2nd Year");
+            System.out.println("3. 3rd Year");
+            System.out.println("4. Final Year");
+            System.out.print("Enter your choice (1-4): ");
+
+            String yearChoice = scanner.nextLine();
+            String newYear = "";
+
+            switch (yearChoice) {
+                case "1":
+                    newYear = "1st Year";
+                    break;
+                case "2":
+                    newYear = "2nd Year";
+                    break;
+                case "3":
+                    newYear = "3rd Year";
+                    break;
+                case "4":
+                    newYear = "Final Year";
+                    break;
+                default:
+                    System.out.println("[WARNING] Invalid year selection. Keeping current year.");
+            }
+
+            if (!newYear.isEmpty()) {
+                student.setYear(newYear);
+            }
         }
 
         System.out.print("Enter new photo path: ");
