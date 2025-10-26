@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS id_card_system;
+USE id_card_system;
+
+CREATE TABLE IF NOT EXISTS students (
+    student_id VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    course VARCHAR(100) NOT NULL,
+    year VARCHAR(20) NOT NULL,
+    photo_path VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS issue_logs (
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(20) NOT NULL,
+    issued_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+);
