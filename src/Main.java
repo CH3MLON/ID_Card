@@ -74,18 +74,70 @@ public class Main {
             return;
         }
 
-        System.out.print("Enter course: ");
-        String course = scanner.nextLine();
-        if (!Utils.validateNotEmpty(course)) {
-            System.out.println("[ERROR] Course cannot be empty.\n");
-            return;
+        // Course selection menu
+        System.out.println("\nSelect course:");
+        System.out.println("1. CSE (Computer Science and Engineering)");
+        System.out.println("2. Mech (Mechanical Engineering)");
+        System.out.println("3. ECE (Electronics and Communication Engineering)");
+        System.out.println("4. EEE (Electrical and Electronics Engineering)");
+        System.out.println("5. CSBS (Computer Science and Business Systems)");
+        System.out.println("6. CCE (Computer and Communication Engineering)");
+        System.out.print("Enter your choice (1-6): ");
+
+        String courseChoice = scanner.nextLine();
+        String course = "";
+
+        switch (courseChoice) {
+            case "1":
+                course = "CSE";
+                break;
+            case "2":
+                course = "Mech";
+                break;
+            case "3":
+                course = "ECE";
+                break;
+            case "4":
+                course = "EEE";
+                break;
+            case "5":
+                course = "CSBS";
+                break;
+            case "6":
+                course = "CCE";
+                break;
+            default:
+                System.out.println("[ERROR] Invalid course selection.\n");
+                return;
         }
 
-        System.out.print("Enter year: ");
-        String year = scanner.nextLine();
-        if (!Utils.validateNotEmpty(year)) {
-            System.out.println("[ERROR] Year cannot be empty.\n");
-            return;
+        // Year selection menu
+        System.out.println("\nSelect year:");
+        System.out.println("1. 1st Year");
+        System.out.println("2. 2nd Year");
+        System.out.println("3. 3rd Year");
+        System.out.println("4. Final Year");
+        System.out.print("Enter your choice (1-4): ");
+
+        String yearChoice = scanner.nextLine();
+        String year = "";
+
+        switch (yearChoice) {
+            case "1":
+                year = "1st Year";
+                break;
+            case "2":
+                year = "2nd Year";
+                break;
+            case "3":
+                year = "3rd Year";
+                break;
+            case "4":
+                year = "Final Year";
+                break;
+            default:
+                System.out.println("[ERROR] Invalid year selection.\n");
+                return;
         }
 
         System.out.print("Enter photo path: ");
